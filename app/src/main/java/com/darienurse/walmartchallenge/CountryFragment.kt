@@ -11,9 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.darienurse.walmartchallenge.model.CountryViewModel
 
 class CountryFragment : Fragment() {
-    private lateinit var viewModel: CountryViewModel
-    private lateinit var adapter: CountryAdapter
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -25,12 +22,13 @@ class CountryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this)[CountryViewModel::class.java]
-        adapter = CountryAdapter()
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
+        val viewModel = ViewModelProvider(this)[CountryViewModel::class.java]
+        val adapter = CountryAdapter()
 
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = adapter
+        view.findViewById<RecyclerView>(R.id.recyclerView).apply {
+            layoutManager = LinearLayoutManager(context)
+            this.adapter = adapter
+        }
 
         viewModel.countries.observe(viewLifecycleOwner) { countries ->
             adapter.submitList(countries)
