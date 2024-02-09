@@ -1,3 +1,3 @@
-![Example GIF](https://i.imgur.com/wW2jVgN.gif)
+![Example GIF](https://github.com/darienurse/WalmartChallenge/blob/master/ezgif-6-ef11b9403f.gif)
 
 
